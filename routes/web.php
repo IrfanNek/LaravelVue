@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/qrcode', 'QrController@make');
-//Route::get('/vcard', 'QrController@make');
+Route::get('/qrcode', 'QrController@make'); // or this ? since you are calling these methods from the index method
+Route::get('/vcard', 'QrController@make'); // Why do you need this ?
 
 Route::post("/pre-register","QrController@index");

@@ -14,9 +14,8 @@ public function index(Request $request)
     $lastName = $values["lastname"];
 
 
-    QrController::vcard($firstName,$lastName);
-
-
+    QrController::vcard($firstName,$lastName); // next time when you are working in the same class
+    // use this->vcard. You are calling functions staticly using :: when they aren't even static
   }
 
     public function make($firstName,$lastName)
