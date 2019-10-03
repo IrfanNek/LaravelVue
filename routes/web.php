@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/qrcode', 'Qrcontroller@make');
-Route::get('/vcard', 'Qrcontroller@make');
+//Route::get('/qrcode', 'QrController@make');
+//Route::get('/vcard', 'QrController@make');
 
-Route::post("/pre-register","Qrcontroller@index");
+Route::post("/pre-register","QrController@index");

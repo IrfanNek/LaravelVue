@@ -14,7 +14,7 @@ public function index(Request $request)
     $lastName = $values["lastname"];
 
 
-    QrController::make($firstName,$lastName);
+    QrController::vcard($firstName,$lastName);
 
 
   }
@@ -23,7 +23,12 @@ public function index(Request $request)
     {
 
       $file=public_path('qr.png');
-      return \QRCode::text(QrController::vcard($firstName,$lastName))->setOutfile($file)->png();
+      return \QRCode::text(QrController::vcard($firstName,$lastName))
+      ->setOutfile($file)
+      ->setErrorCorrectionLevel('H')
+      ->setSize(4)
+      ->setMargin(2)
+      ->svg();
     }
 
     public function vcard($firstName,$lastName)
@@ -82,7 +87,7 @@ public function index(Request $request)
 
       return \QRCode::vCard($firstName, $lastName ,$title ,$email, $addresses, $phones)
                 ->setErrorCorrectionLevel('H')
-                ->setSize(4)
+                ->setSize(2)
                 ->setMargin(2)
                 ->svg();
       }
