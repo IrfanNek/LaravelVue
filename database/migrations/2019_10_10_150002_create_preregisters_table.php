@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePreregistersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('preregisters', function (Blueprint $table) {
+          $table->bigIncrements('id');
+          $table->string('host_name');
+          $table->string('visitor_name');
+          $table->string('address');
+          $table->string('phone');
+          $table->string('email');
+          $table->string('nic');
+          $table->string('clockin')->nullable();
+          $table->string('clockout')->nullable();
+          $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('preregisters');
+    }
+}
